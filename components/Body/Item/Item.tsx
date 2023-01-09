@@ -5,6 +5,7 @@ import Content from "./Content/Content";
 import styles from "./Item.module.scss";
 
 import "animate.css";
+import Image from "next/image";
 
 type Props = {
   location: number;
@@ -76,7 +77,7 @@ export default function Item({ location, setLocation, position }: Props) {
         block: "center",
       });
     }
-  }, [position]);
+  }, [position, location, setLocation]);
 
   useEffect(() => {
     (() => {
@@ -95,13 +96,13 @@ export default function Item({ location, setLocation, position }: Props) {
         }
       });
     })();
-  }, []);
+  }, [isPc]);
 
   useEffect(() => {
     if (scrollY === 0) {
       setLocation(0);
     }
-  }, [scrollY]);
+  }, [scrollY, setLocation]);
 
   return (
     <div className={styles.item_container}>

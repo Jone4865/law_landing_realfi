@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
       <div className={styles.footer_bottom}>
         <div>
-          <img src={"/img/logo/logo.png"} onClick={() => router.push("/")} />
+          <img src={"/img/logo/logo.png"} onClick={() => router.push("/")} alt="푸터 로고" />
         </div>
         <div className={styles.footer_bottom_line2}>
           <span className={styles.footer_bold}>
