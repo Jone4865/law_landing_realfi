@@ -4,7 +4,6 @@ import Body from "../Body/Body";
 import Side from "../Side/Side";
 
 import styles from "./Landing.module.scss";
-import Head from "next/head";
 
 export default function Landing() {
   const [location, setLocation] = useState(0);
@@ -26,9 +25,6 @@ export default function Landing() {
 
   return (
     <div>
-      <Head>
-        <title>Real_Fi</title>
-      </Head>
       <div className={styles.landing}>
         <Header
           setLocation={setLocation}

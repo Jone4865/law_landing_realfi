@@ -29,7 +29,7 @@ export default function Header({
     <div className={!scrollY ? styles.header_trans : styles.header_black}>
       <div className={styles.header_container}>
         <div className={styles.header_logo}>
-          <img src={"/img/logo/logo.png"} onClick={() => router.push("/")} />
+          <img src={"/img/logo/logo.png"} onClick={() => router.push("/")} alt="헤더 로고" />
         </div>
         <div>
           <div className={styles.herder_buttons_wrap}>
