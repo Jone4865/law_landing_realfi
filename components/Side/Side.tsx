@@ -51,7 +51,7 @@ function Side({ modal, setModalState, setLocation, setContentClick }: Props) {
         }}
       >
         <h1>
-          <img alt="공백" />
+          <span />
           <span onClick={() => setModalState(false)}>X</span>
         </h1>
         {Buttons.map((button, index) => (

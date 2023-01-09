@@ -77,7 +77,7 @@ export default function Item({ location, setLocation, position }: Props) {
         block: "center",
       });
     }
-  }, [position, location, setLocation]);
+  }, [position]);
 
   useEffect(() => {
     (() => {
@@ -96,13 +96,13 @@ export default function Item({ location, setLocation, position }: Props) {
         }
       });
     })();
-  }, [isPc]);
+  }, []);
 
   useEffect(() => {
     if (scrollY === 0) {
       setLocation(0);
     }
-  }, [scrollY, setLocation]);
+  }, [scrollY]);
 
   return (
     <div className={styles.item_container}>
@@ -125,7 +125,7 @@ export default function Item({ location, setLocation, position }: Props) {
                     ${"animate__animated animate__fadeInRight"}
                 }`}
               >
-                <img src={`/img/body_img/body_img1.png`} />
+                <img src={`/img/body_img/body_img1.png`} alt="탑 바디 이미지" />
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function Item({ location, setLocation, position }: Props) {
                   }
                 />
                 <div className={styles.item_bottom_img}>
-                  <img src={`/img/body_img/body_img${index + 2}.png`} />
+                  <img src={`/img/body_img/body_img${index + 2}.png`} alt="바디 이미지" />
                 </div>
               </div>
             </div>
