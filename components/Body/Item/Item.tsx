@@ -84,15 +84,15 @@ export default function Item({ location, setLocation, position }: Props) {
       window.addEventListener("scroll", () => {
         setScrollY(window.scrollY);
         if (isPc) {
-          window.pageYOffset >= screen.height*0.3 ? setAni1(true) : "";
-          window.pageYOffset >= screen.height*1.3-50 ? setAni2(true) : "";
-          window.pageYOffset >= screen.height*2.3-110 ? setAni3(true) : "";
-          window.pageYOffset >= screen.height*3.3-180 ? setAni4(true) : "";
+          window.pageYOffset >= screen.height * 0.3 ? setAni1(true) : "";
+          window.pageYOffset >= screen.height * 1.3 - 50 ? setAni2(true) : "";
+          window.pageYOffset >= screen.height * 2.3 - 110 ? setAni3(true) : "";
+          window.pageYOffset >= screen.height * 3.3 - 180 ? setAni4(true) : "";
         } else {
-          window.pageYOffset >= screen.height*0.3 ? setAni1(true) : "";
-          window.pageYOffset >= screen.height*1.3-50 ? setAni2(true) : "";
-          window.pageYOffset >= screen.height*2.3-110 ? setAni3(true) : "";
-          window.pageYOffset >= screen.height*3.3-180 ? setAni4(true) : "";
+          window.pageYOffset >= screen.height * 0.3 ? setAni1(true) : "";
+          window.pageYOffset >= screen.height * 1.3 - 50 ? setAni2(true) : "";
+          window.pageYOffset >= screen.height * 2.3 - 110 ? setAni3(true) : "";
+          window.pageYOffset >= screen.height * 3.3 - 180 ? setAni4(true) : "";
         }
       });
     })();
@@ -116,7 +116,7 @@ export default function Item({ location, setLocation, position }: Props) {
               <Content
                 title="소액으로 시작하는"
                 subTitle="부동산 조각 투자"
-                contentLine1="투자를 시작하고 건물주가 되어보세요"
+                contentLine1="리얼파이로 부동산 투자를 시작해보세요."
                 contentLine2=""
                 animation={true}
               />
@@ -165,7 +165,10 @@ export default function Item({ location, setLocation, position }: Props) {
                   }
                 />
                 <div className={styles.item_bottom_img}>
-                  <img src={`/img/body_img/body_img${index + 2}.png`} alt="바디 이미지" />
+                  <img
+                    src={`/img/body_img/body_img${index + 2}.png`}
+                    alt="바디 이미지"
+                  />
                 </div>
               </div>
             </div>
