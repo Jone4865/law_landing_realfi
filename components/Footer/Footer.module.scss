@@ -4,6 +4,7 @@
   display: flex;
   width: 100%;
   height: auto;
+  background-color: #101012;
   flex-direction: column;
 }
 
@@ -46,14 +47,16 @@
   flex-direction: column;
   text-align: center;
   width: 100vw;
-  height: 397px;
   justify-content: center;
+  padding: 60px;
   background-color: #101012;
-  color: #bbbbbb;
+  color: #636363;
+  line-height: 26px;
+  border-bottom: 1px solid #707070;
   img {
     width: 124.5px;
     height: 34.9px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 20px auto;
     &:hover {
       cursor: pointer;
     }
@@ -64,7 +67,10 @@
   }
 
   @include view("mobile") {
-    height: 280px;
+    height: 178px;
+    align-items: flex-start;
+    text-align: start;
+    padding: 100px 30px;
     img {
       width: 89.2px;
       height: 25px;
@@ -72,7 +78,6 @@
     }
     div,
     span {
-      margin: 5px auto;
       font-size: 12px;
     }
   }
@@ -93,4 +98,75 @@
 
 .footer_link {
   font-weight: bolder;
+}
+
+.footer_line3 {
+  display: flex;
+  max-width: 1300px;
+  margin: auto;
+  justify-content: space-between;
+  padding: 60px 0;
+  width: 70vw;
+  @include view("small") {
+    width: 95vw;
+  }
+  @include view("very_small") {
+    width: 95vw;
+  }
+  @include view("mobile") {
+    width: 90vw;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+}
+
+.footer_line3_title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+  @include view("mobile") {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.footer_line3_left {
+  margin-right: 80px;
+  font-size: 16px;
+  color: #636363;
+  line-height: 24px;
+  @include view("very_small") {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+  @include view("mobile") {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.footer_line3_sns_title {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  @include view("mobile") {
+    margin: 0 0 4px 0;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.footer_line3_left_wrap {
+  display: flex;
+  @include view("mobile") {
+    flex-direction: column;
+  }
+}
+
+.hover {
+  cursor: pointer;
 }
