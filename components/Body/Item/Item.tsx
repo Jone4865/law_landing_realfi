@@ -89,9 +89,9 @@ export default function Item({ location, setLocation, position }: Props) {
           window.pageYOffset >= screen.height * 3.3 - 180 ? setAni4(true) : "";
         } else {
           window.pageYOffset >= screen.height * 0.3 ? setAni1(true) : "";
-          window.pageYOffset >= screen.height * 1.3 - 50 ? setAni2(true) : "";
-          window.pageYOffset >= screen.height * 2.3 - 110 ? setAni3(true) : "";
-          window.pageYOffset >= screen.height * 3.3 - 180 ? setAni4(true) : "";
+          window.pageYOffset >= screen.height * 0.6 ? setAni2(true) : "";
+          window.pageYOffset >= screen.height * 1.1 ? setAni3(true) : "";
+          window.pageYOffset >= screen.height * 1.6 ? setAni4(true) : "";
         }
       });
     })();
