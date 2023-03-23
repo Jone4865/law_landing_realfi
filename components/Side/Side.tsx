@@ -65,7 +65,7 @@ function Side({
       }
     }
   }, [modal]);
-  console.log(modal, more);
+
   return (
     <div
       className={`${none ? styles.side_none : ""} ${styles.side_contain}`}
