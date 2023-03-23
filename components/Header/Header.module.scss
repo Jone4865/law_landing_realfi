@@ -8,6 +8,7 @@
   border-bottom: solid 1px rgba(255, 255, 255, 0.285);
   color: #f3f3f3;
   z-index: 1;
+  // background-color: black;
 
   @include view("mobile") {
     height: 70px;
@@ -102,6 +103,7 @@
 
 .header_hover {
   margin: auto 1vw;
+  position: relative;
   &:hover {
     cursor: pointer;
   }
@@ -110,6 +112,31 @@
 .header_hover:hover {
   -webkit-animation: shake 0.5s;
   animation: shake 0.5s;
+}
+
+.header_more_container {
+  position: absolute;
+  width: 140px;
+  top: 0;
+  padding-top: 50px;
+}
+
+.header_more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgba(106, 102, 102, 0.612);
+  margin-top: 10px;
+  div {
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  hr {
+    width: 100%;
+  }
 }
 
 @keyframes shake {

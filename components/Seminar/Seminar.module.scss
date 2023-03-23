@@ -1,0 +1,29 @@
+@import "public/scss/style.scss";
+
+.container {
+  background-color: #000;
+}
+
+.more_wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  @include view("mobile") {
+    padding-top: 70px;
+  }
+}
+
+.seminar_img {
+  background-image: url("/img/more/seminar.jpg");
+  background-size: 100% 100%;
+  width: 30vw;
+  height: 85vw;
+  min-width: 700px;
+  min-height: 2000px;
+  @include view("mobile") {
+    min-height: 0;
+    min-width: 0;
+    width: 100vw;
+    height: 288vw;
+  }
+}

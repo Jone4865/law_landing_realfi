@@ -66,6 +66,12 @@
   animation: slideout 0.5s;
 }
 
+.more {
+  padding-left: 30px !important;
+  background-color: rgba(128, 128, 128, 0.334);
+  font-size: 14px !important;
+}
+
 @keyframes slidein {
   from {
     opacity: 0.2;
@@ -83,7 +89,13 @@
   }
 }
 @keyframes shake {
-  0% { transform: none; }
-  50% { transform: scale(0.9); }
-  100% { transform: none; }
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: none;
+  }
 }

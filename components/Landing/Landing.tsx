@@ -6,14 +6,17 @@ import Side from "../Side/Side";
 import styles from "./Landing.module.scss";
 
 export default function Landing() {
-  const [location, setLocation] = useState(0);
+  const [location, setLocation] = useState<number>(0);
   const [position, setPosition] = useState(false);
   const [modal, setModal] = useState(false);
-
+  const [saveLocation, setSaveLocation] = useState<string | null>(null);
   useEffect(() => {
-    setLocation(location);
     setPosition(false);
-  }, [position]);
+    setSaveLocation(localStorage.getItem("location"));
+    if (saveLocation !== null) {
+      setLocation(+saveLocation);
+    }
+  }, [position, saveLocation]);
 
   const setModalState = (modal: boolean) => {
     setModal(modal);

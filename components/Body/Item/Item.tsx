@@ -5,7 +5,6 @@ import Content from "./Content/Content";
 import styles from "./Item.module.scss";
 
 import "animate.css";
-import Image from "next/image";
 
 type Props = {
   location: number;
@@ -33,28 +32,28 @@ export default function Item({ location, setLocation, position }: Props) {
   const Item = [two, three, four, five];
 
   const title = [
-    "전문가가 엄선한",
-    "건물주가 되는",
-    "주식처럼",
-    "정기 배당 수익을 통해",
+    "리얼파이는 세상의 모든 권리를",
+    "5천원 부터 선착순 방식으로",
+    "주식보다 쉬운",
+    "모닝콜 보다 기분좋은",
   ];
   const subTitle = [
-    "차별화 된 부동산 IP",
-    "가장 빠른 방법",
-    "손쉽게 거래가 가능해요",
-    "13번째 월급을 만들어봐요",
+    "거래하는 장외거래 플랫폼입니다.",
+    "누구나 쉽게 청약이 가능합니다.",
+    "손쉽게 투자가 가능해요",
+    "수익 알람으로 아침을 열어보세요.",
   ];
   const contentLine1 = [
-    "전문가 그룹이 깐깐하게 선정한",
-    "5천원 부터 선착순 방식으로",
-    "주식만큼 편리하게",
-    "보유한 지분만큼 높은 수준의",
+    "부동산 STO는 시작일 뿐입니다.",
+    "세상에 존재 하는 모든 권리를 나누는",
+    "어려운 주식은 그만,",
+    "보유한 토큰 만큼 높은 수익의 배당을",
   ];
   const contentLine2 = [
-    "진짜 상품성 있는 부동산 IP만 취급해요.",
-    "누구나 쉽게 청약이 가능해요.",
-    "수익증권을 사고 팔아 보세요.",
-    "배당 수익을 기대할 수 있어요.",
+    "세상의 모든 권리와 권한을 토큰증권화 하여",
+    "토큰증권(STO)을 리얼파이에서 구매하세요.",
+    "주식보다 편리하게 수익증권을 사고 팔아 보세요.",
+    "매일 확인 할수 있어요.",
   ];
 
   useEffect(() => {
@@ -77,7 +76,7 @@ export default function Item({ location, setLocation, position }: Props) {
         block: "center",
       });
     }
-  }, [position]);
+  }, [position, location]);
 
   useEffect(() => {
     (() => {
@@ -114,9 +113,9 @@ export default function Item({ location, setLocation, position }: Props) {
           >
             <div className={styles.item_top_wrap}>
               <Content
-                title="소액으로 시작하는"
-                subTitle="부동산 조각 투자"
-                contentLine1="리얼파이로 부동산 투자를 시작해보세요."
+                title="세상의 모든 권리를 증권으로"
+                subTitle="투자의 새로운 진화"
+                contentLine1="리얼파이에서 토큰을 투자해 보세요."
                 contentLine2=""
                 animation={true}
               />
@@ -130,7 +129,7 @@ export default function Item({ location, setLocation, position }: Props) {
             </div>
           </div>
         </li>
-        {Item.map((item, index) => (
+        {Item.map((_item, index) => (
           <li ref={Item[index]} key={index} className={styles.item_body}>
             <div
               style={{

@@ -1,0 +1,88 @@
+@import "public/scss/style.scss";
+
+.pc_side {
+  position: fixed;
+  width: 234px;
+  bottom: 40%;
+  right: 2vw;
+  font-size: 20px;
+  color: #2a2a2a;
+  :last-child {
+    border: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  @include view("mobile") {
+    display: none;
+  }
+}
+
+.title {
+  color: #fff;
+  font-size: 23px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 23px 0;
+  background-color: #de4059;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.line {
+  height: 72.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 17px 14px;
+  border-bottom: solid 1px #d4d4d4;
+  cursor: pointer;
+}
+
+.btns {
+  width: 35px;
+  height: 35px;
+  background-size: 100% 100%;
+}
+
+.next_icon {
+  width: 10.9px;
+  height: 18.4px;
+  background-image: url(/img/more/next.png);
+  background-size: 100% 100%;
+}
+
+.ments {
+  width: 130px;
+}
+
+.mobile_footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 88px;
+  background-color: #fff;
+  display: none;
+  justify-content: space-between;
+  padding: 13px 41px;
+  color: #8f8f8f;
+  font-size: 13px;
+  @include view("mobile") {
+    display: flex;
+  }
+}
+
+.footer_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer {
+  width: 23px;
+  height: 24px;
+  background-size: 100% 100%;
+  margin-bottom: 6px;
+}

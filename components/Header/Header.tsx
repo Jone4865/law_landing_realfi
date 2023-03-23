@@ -3,19 +3,42 @@ import styles from "./Header.module.scss";
 import router from "next/router";
 
 type Props = {
+  onRouter?: boolean;
   setLocation: (location: number) => void;
   setModalState: (modal: boolean) => void;
   setContentClick: (position: boolean) => void;
 };
 
 export default function Header({
+  onRouter = false,
   setLocation,
   setModalState,
   setContentClick,
 }: Props) {
   const [scrollY, setScrollY] = useState(false);
+  const [more, setMore] = useState(false);
 
-  const Buttons = ["홈", "차별성", "청약하기", "마켓거래", "배당수입"];
+  const Buttons = [
+    "홈",
+    "차별성",
+    "청약하기",
+    "마켓거래",
+    "배당수입",
+    "2023 국회세미나",
+  ];
+
+  const onClickHandle = (index: number) => {
+    setLocation(index);
+    setModalState(false);
+    setContentClick(true);
+    localStorage.setItem("location", index.toString());
+    if (onRouter) {
+      index !== 5 && router.push(`/`);
+    }
+  };
+  const onClickMore = (title: string) => {
+    router.push(`/${title}`);
+  };
 
   useEffect(() => {
     (() => {
@@ -40,14 +63,39 @@ export default function Header({
             {Buttons.map((button, index) => (
               <div
                 key={button}
-                className={styles.header_hover}
                 onClick={() => {
-                  setLocation(index);
-                  setModalState(false);
-                  setContentClick(true);
+                  onClickHandle(index);
                 }}
               >
-                <span>{button}</span>
+                <p
+                  className={styles.header_hover}
+                  onMouseEnter={() => index === 5 && setMore(true)}
+                >
+                  {button}
+                </p>
+                {more && index === 5 && (
+                  <div
+                    className={styles.header_more_container}
+                    onMouseEnter={() => setMore(true)}
+                    onMouseLeave={() => setMore(false)}
+                  >
+                    <div className={styles.header_more}>
+                      <div
+                        className={styles.header_hover}
+                        onClick={() => onClickMore("seminar")}
+                      >
+                        세미나
+                      </div>
+                      <hr />
+                      <div
+                        className={styles.header_hover}
+                        onClick={() => onClickMore("invitation")}
+                      >
+                        초대장
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
