@@ -57,6 +57,7 @@ export default function Seminar() {
           setModalState={setModalState}
           setLocation={setLocation}
           setContentClick={setContentClick}
+          onRouter
         />
       </div>
     </>

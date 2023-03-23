@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import router from "next/router";
+import { Link } from "react-scroll";
 
 type Props = {
   onRouter?: boolean;
@@ -61,42 +62,44 @@ export default function Header({
         <div>
           <div className={styles.herder_buttons_wrap}>
             {Buttons.map((button, index) => (
-              <div
-                key={button}
-                onClick={() => {
-                  onClickHandle(index);
-                }}
-              >
-                <p
-                  className={styles.header_hover}
-                  onMouseEnter={() => index === 5 && setMore(true)}
+              <Link to={button} spy={true} smooth={true}>
+                <div
+                  key={button}
+                  onClick={() => {
+                    onClickHandle(index);
+                  }}
                 >
-                  {button}
-                </p>
-                {more && index === 5 && (
-                  <div
-                    className={styles.header_more_container}
-                    onMouseEnter={() => setMore(true)}
-                    onMouseLeave={() => setMore(false)}
+                  <p
+                    className={styles.header_hover}
+                    onMouseEnter={() => index === 5 && setMore(true)}
                   >
-                    <div className={styles.header_more}>
-                      <div
-                        className={styles.header_hover}
-                        onClick={() => onClickMore("seminar")}
-                      >
-                        세미나
-                      </div>
-                      <hr />
-                      <div
-                        className={styles.header_hover}
-                        onClick={() => onClickMore("invitation")}
-                      >
-                        초대장
+                    {button}
+                  </p>
+                  {more && index === 5 && (
+                    <div
+                      className={styles.header_more_container}
+                      onMouseEnter={() => setMore(true)}
+                      onMouseLeave={() => setMore(false)}
+                    >
+                      <div className={styles.header_more}>
+                        <div
+                          className={styles.header_hover}
+                          onClick={() => onClickMore("seminar")}
+                        >
+                          세미나
+                        </div>
+                        <hr />
+                        <div
+                          className={styles.header_hover}
+                          onClick={() => onClickMore("invitation")}
+                        >
+                          초대장
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
+              </Link>
             ))}
           </div>
           <img

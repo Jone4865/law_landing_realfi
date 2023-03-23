@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Side.module.scss";
 import router from "next/router";
+import { Link } from "react-scroll";
 
 type Props = {
   modal: boolean;
@@ -40,7 +41,7 @@ function Side({
 
   const onClickHandle = (index: number) => {
     localStorage.setItem("location", index.toString());
-    if (onRouter) {
+    if (index !== 5) {
       setLocation(index);
       setModalState(false);
       setContentClick(true);
@@ -49,7 +50,9 @@ function Side({
       setContentClick(true);
       setMore(true);
     }
-    index !== 5 && router.push(`/`);
+    if (onRouter) {
+      router.push(`/`);
+    }
   };
   const onClickMore = (title: string) => {
     router.push(`/${title}`);
@@ -88,13 +91,15 @@ function Side({
           <span onClick={() => setModalState(false)}>X</span>
         </h1>
         {Buttons.map((button, index) => (
-          <div
-            key={button}
-            onClick={() => onClickHandle(index)}
-            className={styles.side_hover}
-          >
-            {button}
-          </div>
+          <Link to={button} spy={true} smooth={true}>
+            <div
+              key={button}
+              onClick={() => onClickHandle(index)}
+              className={styles.side_hover}
+            >
+              {button}
+            </div>
+          </Link>
         ))}
         {more && (
           <>
