@@ -30,7 +30,7 @@ export default function Item({ location, setLocation, position }: Props) {
   const four = useRef<any>(null);
   const five = useRef<any>(null);
   const Item = ["차별성", "청약하기", "마켓거래", "배당수입"];
-
+  const Refs = [one, two, three, four, five];
   const title = [
     "리얼파이는 세상의 모든 권리를",
     "5천원 부터 선착순 방식으로",
@@ -65,20 +65,18 @@ export default function Item({ location, setLocation, position }: Props) {
   }, [isPc]);
 
   useEffect(() => {
-    // if (location) {
-    //   Item[location - 1]?.current?.scrollIntoView({
-    //     behavior: "smooth",
-    //     block: "center",
-    //   });
-    // } else {
-    //   one.current?.scrollIntoView({
-    //     behavior: "smooth",
-    //     block: "center",
-    //   });
-    // }
-  }, [position, location]);
+    if (location) {
+      Refs[location - 1]?.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    } else {
+      one.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
 
-  useEffect(() => {
     (() => {
       window.addEventListener("scroll", () => {
         setScrollY(window.scrollY);
@@ -95,6 +93,7 @@ export default function Item({ location, setLocation, position }: Props) {
         }
       });
     })();
+    setLocation(0);
   }, []);
 
   useEffect(() => {
@@ -130,7 +129,12 @@ export default function Item({ location, setLocation, position }: Props) {
           </div>
         </li>
         {Item.map((item, index) => (
-          <li key={index} id={item} className={styles.item_body}>
+          <li
+            key={index}
+            id={item}
+            ref={Refs[index]}
+            className={styles.item_body}
+          >
             <div
               style={{
                 backgroundImage: pc
