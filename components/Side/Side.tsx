@@ -44,12 +44,12 @@ function Side({
       setLocation(index);
       setModalState(false);
       setContentClick(true);
-      index !== 5 && router.push(`/`);
     } else {
       setLocation(index);
       setContentClick(true);
       setMore(true);
     }
+    index !== 5 && router.push(`/`);
   };
   const onClickMore = (title: string) => {
     router.push(`/${title}`);
