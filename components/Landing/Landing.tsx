@@ -10,11 +10,13 @@ export default function Landing() {
   const [position, setPosition] = useState(false);
   const [modal, setModal] = useState(false);
   const [saveLocation, setSaveLocation] = useState<string | null>(null);
+
   useEffect(() => {
     setPosition(false);
     setSaveLocation(localStorage.getItem("location"));
     if (saveLocation !== null) {
       setLocation(+saveLocation);
+      localStorage.removeItem("location");
     }
   }, [position, saveLocation]);
 

@@ -39,12 +39,16 @@ function Side({
   }
 
   const onClickHandle = (index: number) => {
-    setLocation(index);
-    setModalState(false);
-    setContentClick(true);
     localStorage.setItem("location", index.toString());
     if (onRouter) {
+      setLocation(index);
+      setModalState(false);
+      setContentClick(true);
       index !== 5 && router.push(`/`);
+    } else {
+      setLocation(index);
+      setContentClick(true);
+      setMore(true);
     }
   };
   const onClickMore = (title: string) => {
