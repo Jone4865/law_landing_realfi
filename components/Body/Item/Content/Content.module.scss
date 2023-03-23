@@ -14,6 +14,7 @@
   @include view("mobile") {
     justify-content: center;
     padding: 11vw 0;
+    white-space: nowrap;
   }
 }
 
@@ -21,20 +22,26 @@
   h2 {
     font-size: 48px;
     color: #f3f3f3;
-    font-weight: 400;
-    letter-spacing: -3px;
+    font-weight: bold;
   }
   div {
     font-size: 48px;
     color: #8252f5;
-    font-weight: 800;
+    font-weight: bold;
     margin-bottom: 7px;
-    letter-spacing: -3px;
   }
   span {
     font-size: 32px;
     display: flex;
     color: #636363;
+  }
+  @include view("pc") {
+    h2 {
+      letter-spacing: -3px;
+    }
+    div {
+      letter-spacing: -3px;
+    }
   }
 
   @include view("middle") {
@@ -70,10 +77,10 @@
     text-align: center;
     h2,
     div {
-      font-size: 23px;
+      font-size: 20px;
     }
     span {
-      font-size: 14px;
+      font-size: 13.5px;
       justify-content: center;
     }
   }

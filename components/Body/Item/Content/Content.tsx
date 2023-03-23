@@ -24,7 +24,9 @@ ${animation ? styles.content_opacity : ""}
     >
       <div className={styles.content_wrap}>
         {contentLine2 === "" ? (
-          <div className={styles.content_coming}>COMING SOON</div>
+          <div className={styles.content_coming} style={{ letterSpacing: "0" }}>
+            COMING SOON
+          </div>
         ) : (
           ""
         )}
