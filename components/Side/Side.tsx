@@ -40,11 +40,11 @@ function Side({
 
   const onClickHandle = (index: number) => {
     localStorage.setItem("location", index.toString());
-    if (onRouter) {
+    if (index !== 5) {
       setLocation(index);
       setModalState(false);
       setContentClick(true);
-      index !== 5 && router.push(`/`);
+      router.push(`/`);
     } else {
       setMore(!more);
     }
@@ -65,7 +65,7 @@ function Side({
       }
     }
   }, [modal]);
-
+  console.log(modal, more);
   return (
     <div
       className={`${none ? styles.side_none : ""} ${styles.side_contain}`}
