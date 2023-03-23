@@ -62,9 +62,8 @@ export default function Header({
         <div>
           <div className={styles.herder_buttons_wrap}>
             {Buttons.map((button, index) => (
-              <Link to={button} spy={true} smooth={true}>
+              <Link key={button} to={button} spy={true} smooth={true}>
                 <div
-                  key={button}
                   onClick={() => {
                     onClickHandle(index);
                   }}

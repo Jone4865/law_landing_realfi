@@ -91,9 +91,8 @@ function Side({
           <span onClick={() => setModalState(false)}>X</span>
         </h1>
         {Buttons.map((button, index) => (
-          <Link to={button} spy={true} smooth={true}>
+          <Link key={button} to={button} spy={true} smooth={true}>
             <div
-              key={button}
               onClick={() => onClickHandle(index)}
               className={styles.side_hover}
             >
