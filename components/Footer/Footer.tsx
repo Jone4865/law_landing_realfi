@@ -20,6 +20,10 @@ export default function Footer() {
     query: "(min-width : 760px) and (max-width :1920px)",
   });
 
+  const clickTell = () => {
+    window.location.href = "tel:1833-8604";
+  };
+
   useEffect(() => {
     (() => {
       window.addEventListener("scroll", () => {
@@ -93,7 +97,7 @@ export default function Footer() {
           </div>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>고객센터</div>
-            <div>고객상담 : 1833-8604</div>
+            <div onClick={clickTell}>고객상담 : 1833-8604</div>
             <div>점심시간 : 13:00 ~ 14:00</div>
             <div>Email: realfiexchnge@gmail.com</div>
           </div>
