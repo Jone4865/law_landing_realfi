@@ -49,9 +49,7 @@ function Side({
         router.push(`/`);
       }
     } else {
-      setLocation(index);
-      setContentClick(true);
-      setMore(true);
+      setMore(!more);
     }
   };
   const onClickMore = (title: string) => {

@@ -66,7 +66,7 @@ export default function Item({ location, setLocation, position }: Props) {
 
   useEffect(() => {
     if (location) {
-      Refs[location - 1]?.current?.scrollIntoView({
+      Refs[location]?.current?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
@@ -93,8 +93,7 @@ export default function Item({ location, setLocation, position }: Props) {
         }
       });
     })();
-    setLocation(0);
-  }, []);
+  }, [location]);
 
   useEffect(() => {
     if (scrollY === 0) {

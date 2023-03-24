@@ -29,9 +29,11 @@ export default function Header({
   ];
 
   const onClickHandle = (index: number) => {
-    setLocation(index);
+    if (index !== 5) {
+      setLocation(index);
+      setContentClick(true);
+    }
     setModalState(false);
-    setContentClick(true);
     localStorage.setItem("location", index.toString());
     if (onRouter) {
       index !== 5 && router.push(`/`);
