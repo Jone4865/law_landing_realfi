@@ -45,13 +45,13 @@ function Side({
       setLocation(index);
       setModalState(false);
       setContentClick(true);
+      if (onRouter) {
+        router.push(`/`);
+      }
     } else {
       setLocation(index);
       setContentClick(true);
       setMore(true);
-    }
-    if (onRouter) {
-      router.push(`/`);
     }
   };
   const onClickMore = (title: string) => {
@@ -91,7 +91,7 @@ function Side({
           <span onClick={() => setModalState(false)}>X</span>
         </h1>
         {Buttons.map((button, index) => (
-          <Link key={button} to={button} spy={true} smooth={true}>
+          <Link key={button} to={button} spy={true} smooth={true} offset={-150}>
             <div
               onClick={() => onClickHandle(index)}
               className={styles.side_hover}

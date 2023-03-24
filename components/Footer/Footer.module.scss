@@ -114,9 +114,9 @@
     width: 95vw;
   }
   @include view("mobile") {
-    width: 90vw;
+    width: 100vw;
     flex-direction: column;
-    padding: 20px 0;
+    padding: 20px;
   }
 }
 
