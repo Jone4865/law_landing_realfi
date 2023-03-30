@@ -16,14 +16,10 @@
 .seminar_img {
   background-image: url("/img/more/seminar.webp");
   background-size: 100% 100%;
-  width: 30vw;
-  height: 85vw;
-  min-width: 700px;
-  min-height: 2000px;
+  width: 700px;
+  height: 2200px;
   @include view("mobile") {
-    min-height: 0;
-    min-width: 0;
     width: 100vw;
-    height: 288vw;
+    height: 310vw;
   }
 }
