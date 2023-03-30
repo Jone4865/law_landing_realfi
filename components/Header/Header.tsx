@@ -4,17 +4,17 @@ import router from "next/router";
 import { Link } from "react-scroll";
 
 type Props = {
-  onRouter?: boolean;
   setLocation: (location: number) => void;
   setModalState: (modal: boolean) => void;
   setContentClick: (position: boolean) => void;
+  onRouter?: boolean;
 };
 
 export default function Header({
-  onRouter = false,
   setLocation,
   setModalState,
   setContentClick,
+  onRouter = false,
 }: Props) {
   const [scrollY, setScrollY] = useState(false);
   const [more, setMore] = useState(false);
@@ -39,6 +39,7 @@ export default function Header({
       index !== 5 && router.push(`/`);
     }
   };
+
   const onClickMore = (title: string) => {
     router.push(`/${title}`);
   };

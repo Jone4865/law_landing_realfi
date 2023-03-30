@@ -52,6 +52,7 @@ function Side({
       setMore(!more);
     }
   };
+
   const onClickMore = (title: string) => {
     router.push(`/${title}`);
   };
