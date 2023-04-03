@@ -9,10 +9,9 @@ import "animate.css";
 type Props = {
   location: number;
   setLocation: (location: number) => void;
-  position: boolean;
 };
 
-export default function Item({ location, setLocation, position }: Props) {
+export default function Item({ location, setLocation }: Props) {
   const [scrollY, setScrollY] = useState(0);
   const [ani1, setAni1] = useState<boolean | string>(false);
   const [ani2, setAni2] = useState(false);

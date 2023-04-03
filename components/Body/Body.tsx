@@ -4,13 +4,12 @@ import Item from "./Item/Item";
 type Props = {
   location: number;
   setLocation: (location: number) => void;
-  position: boolean;
 };
 
-export default function Body({ location, setLocation, position }: Props) {
+export default function Body({ location, setLocation }: Props) {
   return (
     <div>
-      <Item location={location} setLocation={setLocation} position={position} />
+      <Item location={location} setLocation={setLocation} />
       <Footer />
     </div>
   );
