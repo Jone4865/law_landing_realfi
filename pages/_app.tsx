@@ -15,9 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>
           리얼파이 | 디지털에서 탄생한 투자의 혁신 토큰증권 STO거래소
         </title>
+        <meta name="Keywords" content="리얼파이" />
         <meta name="Keywords" content="realfi" />
         <meta name="Keywords" content="realfiEx" />
-        <meta name="Keywords" content="리얼파이" />
         <meta name="Keywords" content="토큰증권" />
         <meta name="Keywords" content="블록체인 STO" />
         <meta name="Keywords" content="블록체인" />
