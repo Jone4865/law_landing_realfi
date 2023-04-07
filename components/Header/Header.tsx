@@ -58,14 +58,11 @@ export default function Header({
             {router?.pathname === "/" ? (
               Buttons.map((button, index) => (
                 <ScrollLink key={button} to={button} spy={true} smooth={true}>
-                  <div
-                    onClick={() => {
-                      onClickHandle(index);
-                    }}
-                  >
+                  <div>
                     <p
                       className={styles.header_hover}
                       onMouseEnter={() => index === 5 && setMore(true)}
+                      onClick={() => setLocation(index)}
                     >
                       {button}
                     </p>
@@ -97,35 +94,40 @@ export default function Header({
               ))
             ) : (
               <>
-                <p
-                  className={styles.header_hover}
-                  onMouseEnter={() => setMore(true)}
-                >
-                  2023 국회세미나
-                </p>
-                {more && (
-                  <div
-                    className={styles.header_more_container}
-                    onMouseEnter={() => setMore(true)}
-                    onMouseLeave={() => setMore(false)}
-                  >
-                    <div className={styles.header_more}>
-                      <Link
-                        href={"/seminar"}
-                        className={styles.header_more_hover}
+                {Buttons.map((btn, idx) => (
+                  <Link key={btn} href={idx !== 5 ? "/" : ""}>
+                    <p
+                      className={styles.header_hover}
+                      onMouseEnter={() => idx === 5 && setMore(true)}
+                      onClick={() => onClickHandle(idx)}
+                    >
+                      {btn}
+                    </p>
+                    {more && idx === 5 && (
+                      <div
+                        className={styles.header_more_container}
+                        onMouseEnter={() => setMore(true)}
+                        onMouseLeave={() => setMore(false)}
                       >
-                        <div>세미나</div>
-                      </Link>
-                      <hr />
-                      <Link
-                        href={"/invitation"}
-                        className={styles.header_more_hover}
-                      >
-                        <div>초대장</div>
-                      </Link>
-                    </div>
-                  </div>
-                )}
+                        <div className={styles.header_more}>
+                          <Link
+                            href={"/seminar"}
+                            className={styles.header_more_hover}
+                          >
+                            <div>세미나</div>
+                          </Link>
+                          <hr />
+                          <Link
+                            href={"/invitation"}
+                            className={styles.header_more_hover}
+                          >
+                            <div>초대장</div>
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </Link>
+                ))}
               </>
             )}
           </div>
