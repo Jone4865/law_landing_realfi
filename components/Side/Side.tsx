@@ -1,23 +1,16 @@
 import { useEffect, useState } from "react";
 import styles from "./Side.module.scss";
-import router from "next/router";
-import { Link } from "react-scroll";
+import { useRouter } from "next/router";
+import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 type Props = {
   modal: boolean;
   setModalState: (modal: boolean) => void;
-  setLocation: (location: number) => void;
-  setContentClick: (position: boolean) => void;
-  onRouter?: boolean;
 };
 
-function Side({
-  modal,
-  setModalState,
-  setLocation,
-  setContentClick,
-  onRouter = false,
-}: Props) {
+function Side({ modal, setModalState }: Props) {
+  const router = useRouter();
   const [none, setNone] = useState(true);
   const [more, setMore] = useState(false);
   const Buttons = [
@@ -38,24 +31,6 @@ function Side({
       setNone(false);
     }, 0);
   }
-
-  const onClickHandle = (index: number) => {
-    localStorage.setItem("location", index.toString());
-    if (index !== 5) {
-      setLocation(index);
-      setModalState(false);
-      setContentClick(true);
-      if (onRouter) {
-        router.replace(`/`);
-      }
-    } else {
-      setMore(!more);
-    }
-  };
-
-  const onClickMore = (title: string) => {
-    router.replace(`/${title}`);
-  };
 
   useEffect(() => {
     const htmlEle = document?.getElementsByTagName("html").item(0);
@@ -89,30 +64,34 @@ function Side({
           <span />
           <span onClick={() => setModalState(false)}>X</span>
         </h1>
-        {Buttons.map((button, index) => (
-          <Link key={button} to={button} spy={true} smooth={true} offset={-150}>
-            <div
-              onClick={() => onClickHandle(index)}
-              className={styles.side_hover}
-            >
-              {button}
-            </div>
-          </Link>
-        ))}
+        {router?.pathname !== "/" ? (
+          <div onClick={() => setMore(!more)} className={styles.side_hover}>
+            2023 국회세미나
+          </div>
+        ) : (
+          Buttons.map((button, index) => (
+            <ScrollLink key={button} to={button} spy={true} smooth={true}>
+              <div
+                className={styles.side_hover}
+                onClick={() => index === 5 && setMore(!more)}
+              >
+                {button}
+              </div>
+            </ScrollLink>
+          ))
+        )}
         {more && (
           <>
-            <div
-              className={`${styles.side_hover} ${styles.more}`}
-              onClick={() => onClickMore("seminar")}
-            >
-              세미나
-            </div>
-            <div
-              className={`${styles.side_hover} ${styles.more}`}
-              onClick={() => onClickMore("invitation")}
-            >
-              초대장
-            </div>
+            <Link href={"/seminar"}>
+              <div className={`${styles.side_hover} ${styles.more}`}>
+                세미나
+              </div>
+            </Link>
+            <Link href={"/invitation"}>
+              <div className={`${styles.side_hover} ${styles.more}`}>
+                초대장
+              </div>
+            </Link>
           </>
         )}
       </div>

@@ -48,18 +48,11 @@ export default function Invitation() {
           setLocation={setLocation}
           setModalState={setModalState}
           setContentClick={setContentClick}
-          onRouter
         />
         <div className={styles.more_wrap}>
           <div className={styles.invitation_img} />
         </div>
-        <Side
-          modal={modal}
-          setModalState={setModalState}
-          setLocation={setLocation}
-          setContentClick={setContentClick}
-          onRouter
-        />
+        <Side modal={modal} setModalState={setModalState} />
         <InvitationFooter />
       </div>
     </>

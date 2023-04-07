@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: www.realfiex.com
+Host: http://www.realfiex.com/
 
 # Sitemaps
-Sitemap: www.realfiex.com/sitemap.xml
+Sitemap: http://www.realfiex.com/sitemap.xml

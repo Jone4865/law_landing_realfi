@@ -128,15 +128,17 @@
   border-radius: 8px;
   background-color: rgb(61, 57, 57);
   margin-top: 10px;
-  div {
-    padding: 10px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+
   hr {
     width: 100%;
   }
+}
+
+.header_more_hover {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes shake {

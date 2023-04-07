@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import router from "next/router";
+import { useRouter } from "next/router";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 
@@ -8,15 +8,14 @@ type Props = {
   setLocation: (location: number) => void;
   setModalState: (modal: boolean) => void;
   setContentClick: (position: boolean) => void;
-  onRouter?: boolean;
 };
 
 export default function Header({
   setLocation,
   setModalState,
   setContentClick,
-  onRouter = false,
 }: Props) {
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(false);
   const [more, setMore] = useState(false);
 
@@ -36,13 +35,6 @@ export default function Header({
     }
     setModalState(false);
     localStorage.setItem("location", index.toString());
-    if (onRouter) {
-      index !== 5 && router.replace(`/`);
-    }
-  };
-
-  const onClickMore = (title: string) => {
-    router.replace(`/${title}`);
   };
 
   useEffect(() => {
@@ -63,45 +55,79 @@ export default function Header({
         </div>
         <div>
           <div className={styles.herder_buttons_wrap}>
-            {Buttons.map((button, index) => (
-              <ScrollLink key={button} to={button} spy={true} smooth={true}>
-                <div
-                  onClick={() => {
-                    onClickHandle(index);
-                  }}
-                >
-                  <p
-                    className={styles.header_hover}
-                    onMouseEnter={() => index === 5 && setMore(true)}
+            {router?.pathname === "/" ? (
+              Buttons.map((button, index) => (
+                <ScrollLink key={button} to={button} spy={true} smooth={true}>
+                  <div
+                    onClick={() => {
+                      onClickHandle(index);
+                    }}
                   >
-                    {button}
-                  </p>
-                  {more && index === 5 && (
-                    <div
-                      className={styles.header_more_container}
-                      onMouseEnter={() => setMore(true)}
-                      onMouseLeave={() => setMore(false)}
+                    <p
+                      className={styles.header_hover}
+                      onMouseEnter={() => index === 5 && setMore(true)}
                     >
-                      <div className={styles.header_more}>
-                        <div
-                          className={styles.header_hover}
-                          onClick={() => onClickMore("seminar")}
-                        >
-                          세미나
-                        </div>
-                        <hr />
-                        <div
-                          className={styles.header_hover}
-                          onClick={() => onClickMore("invitation")}
-                        >
-                          초대장
+                      {button}
+                    </p>
+                    {more && index === 5 && (
+                      <div
+                        className={styles.header_more_container}
+                        onMouseEnter={() => setMore(true)}
+                        onMouseLeave={() => setMore(false)}
+                      >
+                        <div className={styles.header_more}>
+                          <Link
+                            href={"/seminar"}
+                            className={styles.header_more_hover}
+                          >
+                            <div>세미나</div>
+                          </Link>
+                          <hr />
+                          <Link
+                            href={"/invitation"}
+                            className={styles.header_more_hover}
+                          >
+                            <div>초대장</div>
+                          </Link>
                         </div>
                       </div>
+                    )}
+                  </div>
+                </ScrollLink>
+              ))
+            ) : (
+              <>
+                <p
+                  className={styles.header_hover}
+                  onMouseEnter={() => setMore(true)}
+                >
+                  2023 국회세미나
+                </p>
+                {more && (
+                  <div
+                    className={styles.header_more_container}
+                    onMouseEnter={() => setMore(true)}
+                    onMouseLeave={() => setMore(false)}
+                  >
+                    <div className={styles.header_more}>
+                      <Link
+                        href={"/seminar"}
+                        className={styles.header_more_hover}
+                      >
+                        <div>세미나</div>
+                      </Link>
+                      <hr />
+                      <Link
+                        href={"/invitation"}
+                        className={styles.header_more_hover}
+                      >
+                        <div>초대장</div>
+                      </Link>
                     </div>
-                  )}
-                </div>
-              </ScrollLink>
-            ))}
+                  </div>
+                )}
+              </>
+            )}
           </div>
           <img
             className={styles.header_icon}

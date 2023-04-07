@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function InvitationFooter() {
   const Btns = ["write", "share", "poster"];
@@ -68,21 +69,33 @@ export default function InvitationFooter() {
         ))}
       </div>
       <div className={styles.mobile_footer}>
-        {Btns.map((btn, index) => (
-          <div
-            key={btn}
-            className={styles.footer_btn}
-            onClick={() => onClickHandle(btn)}
-          >
+        {Btns.map((btn, index) =>
+          btn !== "poster" ? (
             <div
-              className={styles.footer}
-              style={{
-                backgroundImage: `url('/img/more/${btn}_m.png')`,
-              }}
-            />
-            <div>{Ments[index]}</div>
-          </div>
-        ))}
+              key={btn}
+              className={styles.footer_btn}
+              onClick={() => onClickHandle(btn)}
+            >
+              <div
+                className={styles.footer}
+                style={{
+                  backgroundImage: `url('/img/more/${btn}_m.png')`,
+                }}
+              />
+              <div>{Ments[index]}</div>
+            </div>
+          ) : (
+            <Link href={"/seminar"} key={btn} className={styles.footer_btn}>
+              <div
+                className={styles.footer}
+                style={{
+                  backgroundImage: `url('/img/more/${btn}_m.png')`,
+                }}
+              />
+              <div>{Ments[index]}</div>
+            </Link>
+          )
+        )}
       </div>
       <ToastContainer
         position="top-right"

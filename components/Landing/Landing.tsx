@@ -37,12 +37,7 @@ export default function Landing() {
           setContentClick={setContentClick}
         />
         <Body location={location} setLocation={setLocation} />
-        <Side
-          modal={modal}
-          setModalState={setModalState}
-          setLocation={setLocation}
-          setContentClick={setContentClick}
-        />
+        <Side modal={modal} setModalState={setModalState} />
       </div>
     </div>
   );
