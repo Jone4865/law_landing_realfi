@@ -46,7 +46,7 @@ function Side({
       setModalState(false);
       setContentClick(true);
       if (onRouter) {
-        router.push(`/`);
+        router.replace(`/`);
       }
     } else {
       setMore(!more);
@@ -54,7 +54,7 @@ function Side({
   };
 
   const onClickMore = (title: string) => {
-    router.push(`/${title}`);
+    router.replace(`/${title}`);
   };
 
   useEffect(() => {

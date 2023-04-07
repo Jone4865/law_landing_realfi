@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import router from "next/router";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 type Props = {
   setLocation: (location: number) => void;
@@ -36,12 +37,12 @@ export default function Header({
     setModalState(false);
     localStorage.setItem("location", index.toString());
     if (onRouter) {
-      index !== 5 && router.push(`/`);
+      index !== 5 && router.replace(`/`);
     }
   };
 
   const onClickMore = (title: string) => {
-    router.push(`/${title}`);
+    router.replace(`/${title}`);
   };
 
   useEffect(() => {
@@ -56,16 +57,14 @@ export default function Header({
     <div className={!scrollY ? styles.header_trans : styles.header_black}>
       <div className={styles.header_container}>
         <div className={styles.header_logo}>
-          <img
-            src={"/img/logo/logo.png"}
-            onClick={() => router.push("/")}
-            alt="헤더 로고"
-          />
+          <Link href={"/"}>
+            <img src={"/img/logo/logo.png"} alt="헤더 로고" />
+          </Link>
         </div>
         <div>
           <div className={styles.herder_buttons_wrap}>
             {Buttons.map((button, index) => (
-              <Link key={button} to={button} spy={true} smooth={true}>
+              <ScrollLink key={button} to={button} spy={true} smooth={true}>
                 <div
                   onClick={() => {
                     onClickHandle(index);
@@ -101,7 +100,7 @@ export default function Header({
                     </div>
                   )}
                 </div>
-              </Link>
+              </ScrollLink>
             ))}
           </div>
           <img
