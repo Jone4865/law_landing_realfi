@@ -49,7 +49,7 @@ export default function Header({
     <div className={!scrollY ? styles.header_trans : styles.header_black}>
       <div className={styles.header_container}>
         <div className={styles.header_logo}>
-          <Link href={"/"}>
+          <Link href="/">
             <img src={"/img/logo/logo.png"} alt="헤더 로고" />
           </Link>
         </div>
@@ -57,7 +57,13 @@ export default function Header({
           <div className={styles.herder_buttons_wrap}>
             {router?.pathname === "/" ? (
               Buttons.map((button, index) => (
-                <ScrollLink key={button} to={button} spy={true} smooth={true}>
+                <ScrollLink
+                  href="/"
+                  key={button}
+                  to={button}
+                  spy={true}
+                  smooth={true}
+                >
                   <div>
                     <p
                       className={styles.header_hover}
@@ -74,14 +80,14 @@ export default function Header({
                       >
                         <div className={styles.header_more}>
                           <Link
-                            href={"/seminar"}
+                            href="/seminar"
                             className={styles.header_more_hover}
                           >
                             <div>세미나</div>
                           </Link>
                           <hr />
                           <Link
-                            href={"/invitation"}
+                            href="/invitation"
                             className={styles.header_more_hover}
                           >
                             <div>초대장</div>
@@ -95,7 +101,7 @@ export default function Header({
             ) : (
               <>
                 {Buttons.map((btn, idx) => (
-                  <Link key={btn} href={idx !== 5 ? "/" : ""}>
+                  <Link href="/" key={btn}>
                     <p
                       className={styles.header_hover}
                       onMouseEnter={() => idx === 5 && setMore(true)}
@@ -111,14 +117,14 @@ export default function Header({
                       >
                         <div className={styles.header_more}>
                           <Link
-                            href={"/seminar"}
+                            href="/seminar"
                             className={styles.header_more_hover}
                           >
                             <div>세미나</div>
                           </Link>
                           <hr />
                           <Link
-                            href={"/invitation"}
+                            href="/invitation"
                             className={styles.header_more_hover}
                           >
                             <div>초대장</div>
@@ -132,6 +138,7 @@ export default function Header({
             )}
           </div>
           <img
+            alt="헤더아이콘"
             className={styles.header_icon}
             src={"/img/icon/menu_white.svg"}
             onClick={() => setModalState(true)}

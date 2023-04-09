@@ -70,7 +70,13 @@ function Side({ modal, setModalState }: Props) {
           </div>
         ) : (
           Buttons.map((button, index) => (
-            <ScrollLink key={button} to={button} spy={true} smooth={true}>
+            <ScrollLink
+              href="/"
+              key={button}
+              to={button}
+              spy={true}
+              smooth={true}
+            >
               <div
                 className={styles.side_hover}
                 onClick={() => index === 5 && setMore(!more)}
@@ -82,12 +88,12 @@ function Side({ modal, setModalState }: Props) {
         )}
         {more && (
           <>
-            <Link href={"/seminar"}>
+            <Link href="/seminar">
               <div className={`${styles.side_hover} ${styles.more}`}>
                 세미나
               </div>
             </Link>
-            <Link href={"/invitation"}>
+            <Link href="/invitation">
               <div className={`${styles.side_hover} ${styles.more}`}>
                 초대장
               </div>
