@@ -3,7 +3,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import Head from "next/head";
-import Link from "next/link";
 
 export default function InvitationFooter() {
   const Btns = ["write", "share", "poster"];
@@ -85,7 +84,7 @@ export default function InvitationFooter() {
               <div>{Ments[index]}</div>
             </div>
           ) : (
-            <Link href={"/seminar"} key={btn} className={styles.footer_btn}>
+            <a href={"/seminar"} key={btn} className={styles.footer_btn}>
               <div
                 className={styles.footer}
                 style={{
@@ -93,7 +92,7 @@ export default function InvitationFooter() {
                 }}
               />
               <div>{Ments[index]}</div>
-            </Link>
+            </a>
           )
         )}
       </div>

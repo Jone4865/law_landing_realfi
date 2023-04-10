@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./PolicyPage.module.scss";
 import { useRouter } from "next/router";
@@ -1333,27 +1332,27 @@ export default function PolicyPage() {
       신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.
       <br />
       개인정보분쟁조정위원회 : (국번없이) 1833-6972 (
-      <Link href="https://www.kopico.go.kr" target="_blank">
+      <a href="https://www.kopico.go.kr" target="_blank">
         www.kopico.go.kr
-      </Link>
+      </a>
       )
       <br />
       개인정보침해신고센터 : (국번없이) 118 (
-      <Link href="https://privacy.kisa.or.kr" target="_blank">
+      <a href="https://privacy.kisa.or.kr" target="_blank">
         privacy.kisa.or.kr
-      </Link>
+      </a>
       )
       <br />
       대검찰청 : (국번없이) 1301 (
-      <Link href="https://www.spo.go.kr" target="_blank">
+      <a href="https://www.spo.go.kr" target="_blank">
         www.spo.go.kr
-      </Link>
+      </a>
       )
       <br />
       경찰청 : (국번없이) 182 (
-      <Link href="https://ecrm.cyber.go.kr" target="_blank">
+      <a href="https://ecrm.cyber.go.kr" target="_blank">
         ecrm.cyber.go.kr
-      </Link>
+      </a>
       )
       <br />
       2. 「개인정보 보호법」 제35조(개인정보의 열람), 제36조(개인정보의
@@ -1361,9 +1360,9 @@ export default function PolicyPage() {
       공공기관의 장이 행한 처분 또는 부작위로 인하여 권리 또는 이익의 침해를
       받은 자는 행정심판법이 정하는 바에 따라 행정심판을 청구할 수 있습니다.
       <br />※ 중앙행정심판위원회 : (국번없이) 110 (
-      <Link href="https://www.simpan.go.kr" target="_blank">
+      <a href="https://www.simpan.go.kr" target="_blank">
         www.simpan.go.kr
-      </Link>
+      </a>
       )
       <br />
       <br />
@@ -1437,32 +1436,27 @@ export default function PolicyPage() {
   );
 
   useEffect(() => {
-    if (router.query[""]) {
-      if (+router.query[""] === 1) {
-        setContent(service);
-        setNowAble(1);
-      } else if (+router.query[""] === 2) {
-        setContent(personalInfo);
-        setNowAble(2);
-      } else {
-        setContent(marketing);
-        setNowAble(3);
-      }
-    }
+    setNowAble(+router.asPath.split("?=")[1]);
+    setContent(
+      +router.asPath.split("?=")[1] === 1
+        ? service
+        : +router.asPath.split("?=")[1] === 2
+        ? personalInfo
+        : marketing
+    );
   }, [router]);
 
   return (
     <div className={styles.modal_body}>
       <div className={styles.flex}>
         {btns.map((btn, idx) => (
-          <Link
+          <a
             href={`/policy?=${idx + 1}`}
-            scroll={false}
             key={idx}
             className={nowAble === idx + 1 ? styles.able_btn : styles.btn}
           >
             {btn}
-          </Link>
+          </a>
         ))}
       </div>
       <div className={styles.title}>{btns[nowAble - 1]}</div>
