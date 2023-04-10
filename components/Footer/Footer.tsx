@@ -3,6 +3,7 @@ import router from "next/router";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const sociallPath = [
@@ -71,15 +72,15 @@ export default function Footer() {
         <div className={styles.footer_line3_left_wrap}>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>약관</div>
-            <a className={styles.hover} href={"/policy?=1"}>
+            <Link className={styles.hover} href={"/policy?=1"}>
               <div>서비스 이용약관</div>
-            </a>
-            <a className={styles.hover} href={"/policy?=2"}>
+            </Link>
+            <Link className={styles.hover} href={"/policy?=2"}>
               <div>개인정보처리방침</div>
-            </a>
-            <a className={styles.hover} href={"/policy?=3"}>
+            </Link>
+            <Link className={styles.hover} href={"/policy?=3"}>
               <div>마케팅정보 수신 동의</div>
-            </a>
+            </Link>
           </div>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>고객센터</div>
@@ -92,7 +93,7 @@ export default function Footer() {
           <div className={styles.footer_line3_sns_title}>SNS</div>
           <div className={styles.flex}>
             {sociallPath.map((path, idx) => (
-              <a
+              <Link
                 key={idx}
                 href={path}
                 target="_blank"
@@ -105,7 +106,7 @@ export default function Footer() {
                   height={isPc ? 50 : 39}
                   quality={100}
                 />
-              </a>
+              </Link>
             ))}
           </div>
         </div>
