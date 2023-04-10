@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>고객센터</div>
-            <a href="tel:010-1234-5678">010-1234-5678</a>
+            <a href="tel:1833-8604">고객상담 : 1833-8604</a>
             <div>점심시간 : 13:00 ~ 14:00</div>
             <div>Email: realfiexchnge@gmail.com</div>
           </div>
