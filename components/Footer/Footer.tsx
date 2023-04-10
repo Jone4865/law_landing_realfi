@@ -76,24 +76,15 @@ export default function Footer() {
         <div className={styles.footer_line3_left_wrap}>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>약관</div>
-            <div
-              className={styles.hover}
-              onClick={() => router.push("/policy?=1")}
-            >
-              서비스 이용약관
-            </div>
-            <div
-              className={styles.hover}
-              onClick={() => router.push("/policy?=2")}
-            >
-              개인정보처리방침
-            </div>
-            <div
-              className={styles.hover}
-              onClick={() => router.push("/policy?=3")}
-            >
-              마케팅정보 수신 동의
-            </div>
+            <Link className={styles.hover} href={"/policy?=1"}>
+              <div>서비스 이용약관</div>
+            </Link>
+            <Link className={styles.hover} href={"/policy?=2"}>
+              <div>개인정보처리방침</div>
+            </Link>
+            <Link className={styles.hover} href={"/policy?=3"}>
+              <div>마케팅정보 수신 동의</div>
+            </Link>
           </div>
           <div className={styles.footer_line3_left}>
             <div className={styles.footer_line3_title}>고객센터</div>
