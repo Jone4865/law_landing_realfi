@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Side.module.scss";
 import { useRouter } from "next/router";
 import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 type Props = {
   modal: boolean;
@@ -87,16 +88,16 @@ function Side({ modal, setModalState }: Props) {
         )}
         {more && (
           <>
-            <a href="/seminar">
+            <Link href="/seminar">
               <div className={`${styles.side_hover} ${styles.more}`}>
                 세미나
               </div>
-            </a>
-            <a href="/invitation">
+            </Link>
+            <Link href="/invitation">
               <div className={`${styles.side_hover} ${styles.more}`}>
                 초대장
               </div>
-            </a>
+            </Link>
           </>
         )}
       </div>
