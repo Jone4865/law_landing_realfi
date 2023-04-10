@@ -1455,15 +1455,14 @@ export default function PolicyPage() {
     <div className={styles.modal_body}>
       <div className={styles.flex}>
         {btns.map((btn, idx) => (
-          <div
+          <Link
+            href={`/policy?=${idx + 1}`}
+            scroll={false}
             key={idx}
-            onClick={() => {
-              window.location.assign(`/policy?=${idx + 1}`);
-            }}
             className={nowAble === idx + 1 ? styles.able_btn : styles.btn}
           >
             {btn}
-          </div>
+          </Link>
         ))}
       </div>
       <div className={styles.title}>{btns[nowAble - 1]}</div>

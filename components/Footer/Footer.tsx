@@ -20,10 +20,6 @@ export default function Footer() {
     query: "(min-width : 760px) and (max-width :1920px)",
   });
 
-  const onClickTell = () => {
-    window.location.href = "tel:1833-8604";
-  };
-
   useEffect(() => {
     (() => {
       window.addEventListener("scroll", () => {
