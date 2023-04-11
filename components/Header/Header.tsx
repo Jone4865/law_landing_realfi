@@ -58,7 +58,7 @@ export default function Header({
             {router?.pathname === "/" ? (
               Buttons.map((button, index) => (
                 <ScrollLink
-                  href="/"
+                  href={index !== 5 ? "/" : "/seminar"}
                   key={button}
                   to={button}
                   spy={true}
@@ -101,7 +101,7 @@ export default function Header({
             ) : (
               <>
                 {Buttons.map((btn, idx) => (
-                  <Link href="/" key={btn}>
+                  <Link href={idx !== 5 ? "/" : "/seminar"} key={btn}>
                     <p
                       className={styles.header_hover}
                       onMouseEnter={() => idx === 5 && setMore(true)}
