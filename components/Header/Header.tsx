@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { useRouter } from "next/router";
-import { Link as ScrollLink } from "react-scroll";
-import Link from "next/link";
+import router from "next/router";
+import { Link } from "react-scroll";
 
 type Props = {
   setLocation: (location: number) => void;
   setModalState: (modal: boolean) => void;
   setContentClick: (position: boolean) => void;
+  onRouter?: boolean;
 };
 
 export default function Header({
   setLocation,
   setModalState,
   setContentClick,
+  onRouter = false,
 }: Props) {
-  const router = useRouter();
   const [scrollY, setScrollY] = useState(false);
   const [more, setMore] = useState(false);
 
@@ -35,6 +35,13 @@ export default function Header({
     }
     setModalState(false);
     localStorage.setItem("location", index.toString());
+    if (onRouter) {
+      index !== 5 && router.push(`/`);
+    }
+  };
+
+  const onClickMore = (title: string) => {
+    router.push(`/${title}`);
   };
 
   useEffect(() => {
@@ -49,96 +56,48 @@ export default function Header({
     <div className={!scrollY ? styles.header_trans : styles.header_black}>
       <div className={styles.header_container}>
         <div className={styles.header_logo}>
-          <Link href="/">
-            <img src={"/img/logo/logo.png"} alt="헤더 로고" />
-          </Link>
+          <img
+            src={"/img/logo/logo.png"}
+            onClick={() => router.push("/")}
+            alt="헤더 로고"
+          />
         </div>
         <div>
           <div className={styles.herder_buttons_wrap}>
-            {router?.pathname === "/" ? (
-              Buttons.map((button, index) => (
-                <ScrollLink
-                  href={index !== 5 ? "/" : "/seminar"}
-                  key={button}
-                  to={button}
-                  spy={true}
-                  smooth={true}
+            {Buttons.map((button, index) => (
+              <Link href="/" key={button} to={button} spy={true} smooth={true}>
+                <div
+                  onClick={() => {
+                    onClickHandle(index);
+                  }}
                 >
-                  <div>
-                    <p
-                      className={styles.header_hover}
-                      onMouseEnter={() => index === 5 && setMore(true)}
-                      onClick={() => setLocation(index)}
+                  <p
+                    className={styles.header_hover}
+                    onMouseEnter={() => index === 5 && setMore(true)}
+                  >
+                    {button}
+                  </p>
+                  {more && index === 5 && (
+                    <div
+                      className={styles.header_more_container}
+                      onMouseEnter={() => setMore(true)}
+                      onMouseLeave={() => setMore(false)}
                     >
-                      {button}
-                    </p>
-                    {more && index === 5 && (
-                      <div
-                        className={styles.header_more_container}
-                        onMouseEnter={() => setMore(true)}
-                        onMouseLeave={() => setMore(false)}
-                      >
-                        <div className={styles.header_more}>
-                          <Link
-                            href="/seminar"
-                            className={styles.header_more_hover}
-                          >
-                            <div>세미나</div>
-                          </Link>
-                          <hr />
-                          <Link
-                            href="/invitation"
-                            className={styles.header_more_hover}
-                          >
-                            <div>초대장</div>
-                          </Link>
+                      <div className={styles.header_more}>
+                        <div onClick={() => onClickMore("seminar")}>세미나</div>
+                        <hr />
+                        <div onClick={() => onClickMore("invitation")}>
+                          초대장
                         </div>
                       </div>
-                    )}
-                  </div>
-                </ScrollLink>
-              ))
-            ) : (
-              <>
-                {Buttons.map((btn, idx) => (
-                  <Link href={idx !== 5 ? "/" : "/seminar"} key={btn}>
-                    <p
-                      className={styles.header_hover}
-                      onMouseEnter={() => idx === 5 && setMore(true)}
-                      onClick={() => onClickHandle(idx)}
-                    >
-                      {btn}
-                    </p>
-                    {more && idx === 5 && (
-                      <div
-                        className={styles.header_more_container}
-                        onMouseEnter={() => setMore(true)}
-                        onMouseLeave={() => setMore(false)}
-                      >
-                        <div className={styles.header_more}>
-                          <Link
-                            href="/seminar"
-                            className={styles.header_more_hover}
-                          >
-                            <div>세미나</div>
-                          </Link>
-                          <hr />
-                          <Link
-                            href="/invitation"
-                            className={styles.header_more_hover}
-                          >
-                            <div>초대장</div>
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </Link>
-                ))}
-              </>
-            )}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            ))}
           </div>
           <img
-            alt="헤더아이콘"
+            alt="헤더 삼단바"
             className={styles.header_icon}
             src={"/img/icon/menu_white.svg"}
             onClick={() => setModalState(true)}

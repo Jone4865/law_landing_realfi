@@ -26,11 +26,17 @@ export default function Seminar() {
         setLocation={setLocation}
         setModalState={setModalState}
         setContentClick={setContentClick}
+        onRouter
       />
       <div className={styles.more_wrap}>
         <div className={styles.seminar_img} />
       </div>
-      <Side modal={modal} setModalState={setModalState} />
+      <Side
+        modal={modal}
+        setModalState={setModalState}
+        setLocation={setLocation}
+        onRouter
+      />
     </div>
   );
 }

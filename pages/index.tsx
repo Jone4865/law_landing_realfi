@@ -41,6 +41,7 @@ export default function Home() {
           property="description"
           content="소액으로 시작하는 부동산 조각 투자"
         />
+        <meta name="description" content="소액으로 시작하는 부동산 조각 투자" />
 
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
