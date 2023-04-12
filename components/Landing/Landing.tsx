@@ -27,7 +27,6 @@ export default function Landing() {
   const setContentClick = (position: boolean) => {
     setPosition(position);
   };
-
   return (
     <div>
       <div className={styles.landing}>

@@ -47,6 +47,9 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:article:author"
           content="23년 04월 06일 STO 국회세미나 개최, 토큰증권 거래, 투자의 미래, 자산을 키우는 STO 장외거래소"
         />
+        <meta property="og:image" content="/img/meta.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="500" />
         <script type="text/javascript" src={AppKey} async></script>
         <script type="text/javascript" async></script>
       </Head>
