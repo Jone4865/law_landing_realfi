@@ -24,25 +24,6 @@ export default function Invitation() {
   };
   return (
     <>
-      <Head>
-        <meta name="Keywords" content="realfi" />
-        <meta name="Keywords" content="realfiex" />
-        <meta property="og:url" content="http://realfiex.com/invitation" />
-        <meta property="og:title" content="Real_Fi" />
-        <meta
-          property="og:description"
-          content="토큰증권 STO 국회세미나에 초대합니다.
-          "
-        />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta
-          property="og:article:author"
-          content="소액으로 시작하는 부동산 조각 투자"
-        />
-        <meta property="og:image" content="/img/meta.jpg" />
-        <meta property="og:image:width" content="800" />
-        <meta property="og:image:height" content="400" />
-      </Head>
       <div className={styles.container}>
         <Header
           setLocation={setLocation}
