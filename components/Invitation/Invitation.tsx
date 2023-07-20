@@ -3,7 +3,6 @@ import Header from "../Header/Header";
 import InvitationFooter from "../InvitationFooter/InvitationFooter";
 import Side from "../Side/Side";
 import styles from "./Invitation.module.scss";
-import Head from "next/head";
 
 export default function Invitation() {
   const [location, setLocation] = useState(0);

@@ -2,7 +2,6 @@ import styles from "./InvitationFooter.module.scss";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
-import Head from "next/head";
 import Link from "next/link";
 
 export default function InvitationFooter() {
